@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Work 2020.01.04</title>
+	<link rel="stylesheet" type="text/css" href="css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Comfort|Nanum+Pen+Script&display=swap" rel="stylesheet">
+	<style>
+        body {font-family:'Baloo Bhai','cursive'}
+		.wrap {
+			width:70%;
+			margin:10px auto;
+		}	
+		.photo {
+			width:80%;
+			margin:auto;
+			height:500px;
+			display:flex;
+			flex-direction:column;
+			align-items:left;
+			justify-content:center;
+
+			background: url('img/Xmas_candle.jpg') no-repeat;
+			background-size:cover;
+			background-position: center;
+		}
+		.disc {
+            margin:10px 0;
+        }
+		.disc h1 {display:inline-block;font-weight:bold;margin-bottom:10px;}
+		.disc p {
+            font-family:'Comfortaa','cursive';
+			display:inline-block;
+			margin-left:10px;
+			font-size:15px;
+		}
+        .order {
+            font-family:'Nanum Pen Script','cursive';
+            margin:30px 10px;
+        }
+        .order div {
+            margin-top:12px;
+        }
+        .order h1 {
+            font-weight:bold;
+            font-size:50px;
+        }
+        .order img {
+            width:20px; height:20px;
+            margin-right:10px;
+        }
+        .order img:nth-child(3) {
+            margin-right:20%;
+        }
+		.order p {
+			display:inline-block;
+			width:20%;
+            font-size:20px;
+		}
+		.order input {width:60%;height:30px;
+			border:1px solid #000;
+			border-radius:8px;
+		}
+		.order textarea {
+			width: 60%;height:30px;
+			border:1px solid #000;
+			border-radius:8px;
+		}
+        .order select {
+            width:60%;height:33px;
+            padding-left:30%;
+            font-weight:bold;
+            border:1px solid #000;
+            border-radius:8px;
+        }
+        button {
+            margin:10px 20%;
+            text-align:center;
+            font-family:'Nanum Pen Script','cursive';
+            font-weight:bold;
+            font-size:25px;
+            width:60%;height:35px;
+            border:2px outset #888;
+            border-radius:8px;
+        }
+	</style>
+</head>
+<body>
+	<div class='wrap'>
+
+		<div class = 'photo'></div>
+
+		<div class='disc'>
+			<h1>Chrismas Candle</h1> <p>￦1,000,000/unit</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae consectetur alias id quaerat itaque cumque magni perferendis autem aspernatur ducimus, facilis rem porro. Cupiditate repellendus ratione, temporibus vel quisquam doloribus.</p>
+		</div>
+		
+		<div class='order'>
+		<h1> 주문하기</h1>
+			<div>
+			<img src="icons/name.png" alt="#">
+			<p>주문자 이름</p> 
+			<input type='text'>
+			</div>
+			<div>
+			<img src="icons/shopping-bag.png" alt="#">
+			<p>수량</p>
+			<select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+            </select>
+            </div>
+			<div>
+			<img src="icons/address_0.png" alt="#"><p>주소</p> 
+			<textarea></textarea>
+			</div>
+			<div>
+			<img src="icons/phone-call_white.png" alt="#"><p>전화번호</p> 
+			<input type='text'>
+			</div>
+		</div>
+		<button>주문하기</button>
+	</div>
+</body>
+</html>

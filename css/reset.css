@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,address,main,nav,header,aside,article,section,footer,figure,table,tr,th,td,caption,thead,tbody,form,fieldset,blockquote {margin: 0}
+li {list-style: none}
+a {text-decoration: none; color: inherit;}
+a img {border: 0;}
+address, cite, i {font-style: normal}
+h1,h2,h3,h4,h5,h6 {font-weight: normal}
+table {border-collapse: collapse;border-spacing: 0;}
+caption {height: 0; text-indent: -9999px}
+header,nav,aside,article,main,section,footer,figure {display: block;}
+
+.cf:before,
+.cf:after {content: '';	display: block;	clear: both;}
