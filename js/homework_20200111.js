@@ -18,9 +18,11 @@ $(document).ready(function(){
     } else if (q_phone_number =='') {
         alert('Enter Orderer Phone Numbers');
         $('#phone_number').focus();
-    } else (q_email =='') {
+    } else if (q_email =='') {
         alert('Enter Orderer E-Mail Address');
         $('#email').focus();
+    } else {
+        alert('Your Order Saved');
     }
         
     });
