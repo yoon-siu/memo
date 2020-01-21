@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 
   <!-- Webpage Title -->
@@ -45,7 +45,7 @@
   </style>
 
   <script>
-
+      $(document).ready(function(){listing()});
      function openclose(){
          if ($('#posting-box').css("display") == 'none') {
          $('#posting-box').show();
@@ -53,8 +53,36 @@
          } else {
              $("#posting-box").hide();
              $('#btn-posting-box').text('포스팅박스 열기');
-         }
-     }
+           }
+    }
+      function listing() {
+          $.ajax({
+              type:'get',
+              url:"http://spartacodingclub.shop/post",
+              data:{},
+              success:function(response){
+                  let articles = response['articles']
+                  console.log(response['articles'])
+                  $('#article-box').html('')
+                  for (let i = 0; i < articles.length; i++){
+                      let img_url = articles[i]['image']
+                      let title = articles[i]['title']
+                      let desc = articles[i]['desc']
+                      let url = articles[i]['url']
+                      let comm = articles[i]['comment']
+                      let temp_html = '<div class="card">\
+                                        <img class="card-img-top" src="'+img_url+'" alt="Card image cap">\
+                                        <div class="card-body">\
+                                        <a href="'+url+'" class="card-title">'+title+'</a>\
+                                        <p class="card-text">'+desc+'</p>\
+                                        <p class="card-text comment">'+comm+'</p>\
+                                        </div>\
+                                        </div>';
+                      $('#article-box').append(temp_html)
+                  }
+              }
+          })
+      }
 
   </script>
 

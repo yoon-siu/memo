@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/homework_20200111.css">
 	<script src='js/homework_20200111.js'></script>
+	<script src='js/homework_20200118.js'></script>
 	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Comfort|Nanum+Pen+Script&display=swap" rel="stylesheet">
 	<style>
         
@@ -27,7 +28,7 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae consectetur alias id quaerat itaque cumque magni perferendis autem aspernatur ducimus, facilis rem porro. Cupiditate repellendus ratione, temporibus vel quisquam doloribus. <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus a quod quae adipisci suscipit alias? Illum dicta, praesentium qui ad tempora, dolor cumque, voluptates perferendis a itaque debitis reprehenderit architecto?</p>
 		</div>
 		
-		<div class='order'>
+		<div class='order_sheet'>
 		<h1>Order</h1>
 		<form action="#" name='order_form' method='post'>
 		    <p class='sub_title'>Orderer Name</p> 
@@ -44,9 +45,11 @@
 		    <p class='sub_title'>Address</p> 
 		    <textarea name="address" id="address" cols="10" rows="50" wrap='soft' placeholder='Where do you want to send it?'></textarea> <br>
 		    <p class='sub_title'>Mobile Numbers</p> 
-		    <input type="text" id='phone_number' placeholder='010-1234-5678'> <br>
+		    <input type="text" id='phone_number' placeholder='01*-1234-5678'> <br>
+<!--
 		    <p class='sub_title'>E-mail</p> 
 		    <input type="text" id='email' placeholder='id@domain'> <br>
+-->
 		    <div class='send'>
 		        <button type='button'> ORDER </button>
 		    </div>
@@ -54,11 +57,11 @@
 
 		</div>
 <!--		<button>주문하기</button>-->
-	<table>
+	<table id='total_orders'>
 	    <thead>
-	        <tr><th>Date</th><th>Orderer</th><th>Quantity</th><th>Address</th><th>Mobile</th><th>E-Mail</th></tr>
+	        <tr><th>Orderer</th><th>Quantity</th><th>Address</th><th>Mobile</th></tr>
 	    </thead>
-	    <tbody></tbody>
+	    <tbody id='order_list'></tbody>
 	</table>
 	</div>
 </body>
