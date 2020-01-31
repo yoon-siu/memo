@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+  <meta charset="UTF-8">
+    <title>JQuery 연습하고 가기!</title>
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <style type="text/css">
+      div.question-box {
+        margin: 10px 0 20px 0;
+      }
+        table {
+            margin:3vw auto;
+            border : 1px solid #000000;
+            width:90vw;
+            text-align:center;
+        }
+        table thead th{
+            background:#000;
+            color: #fff;
+            border:1px solid #fff;
+        }
+        table th, td {
+            border: 1px solid #000;
+            border-spacing: 10px;
+        }
+        table #names-q1 .best {background:#0d31f2; color: #fff;}
+        table #names-q1 .good {background:#0da3f2; color: #fff;}
+        table #names-q1 .favorable {background:#0dc6f2; color: #fff;}
+        table #names-q1 .normal {background:#0df21f; color: #fff;}
+        table #names-q1 .bad {background:#f2ac0d; color: #fff;}
+        table #names-q1 .prettybad {background:#f2650d; color: #fff;}
+        table #names-q1 .verybad {background:#f20d0d; color: #fff;}
+        table #names-q1 .worst {background:#000000; color: #fff;}
+    </style>
+
+    <script>
+      function q1() {
+          $.ajax({
+              type: "GET",
+              url:"http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+              data: {},
+              success: function(response){
+                  let gu_s = response['RealtimeCityAir']['row']
+                  
+                  $('#names-q1').html('');
+                  for (let i = 0 ; i < gu_s.length; i++) {
+                      let gu_name = gu_s[i]['MSRSTE_NM'];
+                      let gu_mise = gu_s[i]['IDEX_MVL'];
+                      let gu_o3 = gu_s[i]['O3'];
+                      let gu_no2 = gu_s[i]['NO2'];
+                      let gu_co = gu_s[i]['CO'];
+                      let gu_so2 = gu_s[i]['SO2'];
+                      let status = gu_s[i]['IDEX_NM'];
+                      if (status == '최고') {
+                        let temp_html = '<tr class="best"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='좋음') {
+                        let temp_html = '<tr class="good"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='양호') {
+                        let temp_html = '<tr class="favorable"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='보통') {
+                        let temp_html = '<tr class="normal"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='나쁨') {
+                        let temp_html = '<tr class="bad"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='상당히나쁨') {
+                        let temp_html = '<tr class="prettybad"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='매우나쁨') {
+                        let temp_html = '<tr class="verybad"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else if (status =='최악') {
+                        let temp_html = '<tr class="worst"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      }
+                      
+//                      console.log(gu_name, gu_mise);
+//                      let temp_html = '<li>' + gu_name + ' : ' + gu_mise + '</li>'
+                      $('#names-q1').append(temp_html)
+                  };
+              }
+          })
+      }
+    </script>
+
+  </head>
+  <body>
+    <h1>JQuery+Ajax의 조합을 연습하자!</h1>
+
+    <hr/>
+
+    <div class="question-box">
+      <h2>1. 서울시 OpenAPI(실시간 미세먼지 상태)를 이용하기</h2>
+      <p>모든 구의 미세먼지를 표기해주세요</p>
+      <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
+      <button onclick="q1()">업데이트</button>
+<!--
+      <ul id="names-q1">
+
+      </ul>
+-->
+   <table>
+       <thead>
+           <tr>
+               <th>구</th>
+               <th>Status</th>
+               <th>Fine Dust</th>
+<!--               <th>Fine Particulate Matter</th>-->
+               <th>O3</th>
+               <th>CO2</th>
+               <th>CO</th>
+               <th>SO2</th>
+           </tr>
+       </thead>
+       <tbody id='names-q1'>
+       </tbody>
+   </table>
+    </div>
+  </body>
+</html>
