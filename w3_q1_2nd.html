@@ -57,6 +57,8 @@
                       let gu_co = gu_s[i]['CO'];
                       let gu_so2 = gu_s[i]['SO2'];
                       let status = gu_s[i]['IDEX_NM'];
+                      let temp_html = '<tr><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      
                       if (status == '최고') {
                         let temp_html = '<tr class="best"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
                       } else if (status =='좋음') {
