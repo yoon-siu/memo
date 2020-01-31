@@ -3,8 +3,8 @@
   <head>
   <meta charset="UTF-8">
     <title>JQuery 연습하고 가기!</title>
-    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 
     <!-- JQuery를 import 합니다 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -36,6 +36,7 @@
         table #names-q1 .prettybad {background:#f2650d; color: #fff;}
         table #names-q1 .verybad {background:#f20d0d; color: #fff;}
         table #names-q1 .worst {background:#000000; color: #fff;}
+        table #names-q1 .check {background:#a39797; color: #ec1212;font-weight:bold}
     </style>
 
     <script>
@@ -72,6 +73,8 @@
                         let temp_html = '<tr class="verybad"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
                       } else if (status =='최악') {
                         let temp_html = '<tr class="worst"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
+                      } else {
+                        let temp_html = '<tr class="check"><td>'+ gu_name + '</td><td>' + status + '</td><td>' + gu_mise + '</td><td>' + gu_o3 + '</td><td>' + gu_no2 + '</td><td>' + gu_co + '</td><td>' + gu_so2 + '</td></tr>';
                       }
                       
 //                      console.log(gu_name, gu_mise);
